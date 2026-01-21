@@ -11,6 +11,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Toaster, toast } from "@/components/ui/sonner";
+import { ThemeProvider } from "next-themes";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -1044,15 +1045,17 @@ function NotFound() {
 
 export default function App() {
   return (
-    <div className="App" data-testid="app-root">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<EquipDetailScreen />} />
-          <Route path="/terms" element={<Terms />} />
-          <Route path="/privacy" element={<Privacy />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+      <div className="App" data-testid="app-root">
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<EquipDetailScreen />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </ThemeProvider>
   );
 }
