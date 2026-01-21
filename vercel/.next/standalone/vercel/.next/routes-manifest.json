@@ -1,0 +1,131 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/api/profile/[discord_user_id]",
+      "regex": "^/api/profile/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPdiscord_user_id": "nxtPdiscord_user_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPdiscord_user_id>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[discord_user_id]/auto-equip",
+      "regex": "^/api/profile/([^/]+?)/auto\\-equip(?:/)?$",
+      "routeKeys": {
+        "nxtPdiscord_user_id": "nxtPdiscord_user_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPdiscord_user_id>[^/]+?)/auto\\-equip(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[discord_user_id]/equipped",
+      "regex": "^/api/profile/([^/]+?)/equipped(?:/)?$",
+      "routeKeys": {
+        "nxtPdiscord_user_id": "nxtPdiscord_user_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPdiscord_user_id>[^/]+?)/equipped(?:/)?$"
+    },
+    {
+      "page": "/api/profile/[discord_user_id]/unequip-all",
+      "regex": "^/api/profile/([^/]+?)/unequip\\-all(?:/)?$",
+      "routeKeys": {
+        "nxtPdiscord_user_id": "nxtPdiscord_user_id"
+      },
+      "namedRegex": "^/api/profile/(?<nxtPdiscord_user_id>[^/]+?)/unequip\\-all(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/api/discord/token",
+      "regex": "^/api/discord/token(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/discord/token(?:/)?$"
+    },
+    {
+      "page": "/api/interactions",
+      "regex": "^/api/interactions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/interactions(?:/)?$"
+    },
+    {
+      "page": "/api/profile/upsert",
+      "regex": "^/api/profile/upsert(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/profile/upsert(?:/)?$"
+    },
+    {
+      "page": "/api/verify",
+      "regex": "^/api/verify(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/verify(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/terms",
+      "regex": "^/terms(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/terms(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

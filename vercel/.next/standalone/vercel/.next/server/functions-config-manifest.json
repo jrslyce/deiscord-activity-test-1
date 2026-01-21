@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "functions": {
+    "/api/discord/token": {},
+    "/api/interactions": {},
+    "/api/profile/[discord_user_id]": {},
+    "/api/profile/[discord_user_id]/auto-equip": {},
+    "/api/profile/[discord_user_id]/equipped": {},
+    "/api/profile/[discord_user_id]/unequip-all": {},
+    "/api/profile/upsert": {},
+    "/api/verify": {}
+  }
+}

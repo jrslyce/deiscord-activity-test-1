@@ -1,0 +1,3 @@
+{
+  "/api/profile/upsert/route": "app/api/profile/upsert/route.js"
+}
