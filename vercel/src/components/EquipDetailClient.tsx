@@ -91,9 +91,9 @@ function computeTotalStats(profile: ProfileDoc | null) {
   const byId = new Map(inv.map((i) => [i.item_id, i] as const));
   const sum = { ...base };
 
-  Object.values(equipped).forEach((itemId) => {
+  Object.values(equipped as Record<string, string | null>).forEach((itemId) => {
     if (!itemId) return;
-    const it = byId.get(itemId);
+    const it = byId.get(itemId as string);
     if (!it) return;
     const b = it.stat_bonus || {};
     sum.strength += b.strength || 0;
