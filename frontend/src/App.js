@@ -974,69 +974,8 @@ function EquipDetailScreen() {
                 </Button>
               </div>
 
-              {/* Slide-in panel */}
-              <AnimatePresence>
-                {activeSlot ? (
-                  <motion.div
-                    initial={{ x: 24, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: 24, opacity: 0 }}
-                    transition={{ duration: 0.18, ease: "easeOut" }}
-                    className="absolute right-4 top-4 bottom-4 w-[360px] max-w-[92vw]"
-                    data-testid="slot-panel"
-                  >
-                    <div className="h-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur p-4">
-                      <div className="flex items-center justify-between gap-3">
-                        <div>
-                          <div
-                            className="text-xs uppercase tracking-[0.28em] text-zinc-400"
-                            data-testid="slot-panel-label"
-                          >
-                            Slot
-                          </div>
-                          <div
-                            className="mt-1 text-lg font-semibold"
-                            data-testid="slot-panel-title"
-                          >
-                            {SLOT_LABEL[activeSlot]}
-                          </div>
-                        </div>
-                        <Button
-                          variant="ghost"
-                          className="rounded-full border border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
-                          onClick={() => setActiveSlot(null)}
-                          data-testid="slot-panel-close-button"
-                        >
-                          Close
-                        </Button>
-                      </div>
-
-                      <Separator className="my-4 bg-white/10" />
-
-                      <ScrollArea className="h-[420px] pr-3" data-testid="slot-panel-scroll">
-                        <div className="space-y-3" data-testid="slot-panel-items">
-                          {itemsForActiveSlot.map((it) => (
-                            <ItemRow
-                              key={it.item_id}
-                              item={it}
-                              onEquip={() => equipItem(activeSlot, it.item_id)}
-                            />
-                          ))}
-
-                          {itemsForActiveSlot.length === 0 ? (
-                            <div
-                              className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-zinc-300"
-                              data-testid="slot-panel-empty"
-                            >
-                              No items for this slot.
-                            </div>
-                          ) : null}
-                        </div>
-                      </ScrollArea>
-                    </div>
-                  </motion.div>
-                ) : null}
-              </AnimatePresence>
+              {/* Slot panel is rendered inside the right side-panel in this MVP to avoid overlay collisions. */}
+              <div data-testid="slot-panel-placeholder" className="hidden" />
             </div>
           </div>
         </div>
