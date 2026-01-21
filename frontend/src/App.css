@@ -1,34 +1,102 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* App.css intentionally minimal; Tailwind handles most styling. */
+
+.App {
+  min-height: 100vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.equip-bg {
+  background:
+    radial-gradient(1200px 700px at 70% 20%, rgba(0, 229, 255, 0.10), transparent 55%),
+    radial-gradient(900px 600px at 20% 80%, rgba(168, 85, 247, 0.09), transparent 60%),
+    #07090b;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+/* dotted grid overlay */
+.equip-grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+  mask-image: radial-gradient(circle at 55% 35%, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.15) 70%, rgba(0, 0, 0, 0) 92%);
+  pointer-events: none;
 }
 
-.App-link {
-    color: #61dafb;
+/* Techy slot border frame */
+.slot-frame {
+  border-color: rgba(0, 229, 255, 0.14);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+    0 0 18px rgba(0, 229, 255, 0.08);
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Slot positions around character */
+.slot-pos {
+  position: absolute;
+  width: 210px;
+}
+
+.slot-head {
+  left: 50%;
+  top: 22px;
+  transform: translateX(-50%);
+}
+
+.slot-shoulders {
+  left: 18px;
+  top: 90px;
+}
+
+.slot-chest {
+  left: 18px;
+  top: 210px;
+}
+
+.slot-hands {
+  left: 18px;
+  top: 330px;
+}
+
+.slot-legs {
+  right: 18px;
+  top: 210px;
+}
+
+.slot-feet {
+  right: 18px;
+  top: 330px;
+}
+
+.slot-mainhand {
+  right: 18px;
+  top: 90px;
+}
+
+.slot-offhand {
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 900px) {
+  .slot-pos {
+    width: 190px;
+  }
+  .slot-shoulders,
+  .slot-chest,
+  .slot-hands,
+  .slot-legs,
+  .slot-feet,
+  .slot-mainhand {
+    left: 10px;
+    right: auto;
+  }
+  .slot-mainhand {
+    top: 90px;
+  }
+  .slot-legs {
+    top: 210px;
+  }
+  .slot-feet {
+    top: 330px;
+  }
 }
