@@ -337,7 +337,7 @@ function ItemRow({ item, onEquip }) {
             className="mt-1 text-xs text-zinc-400"
             data-testid={`inventory-item-${item.item_id}-bonuses`}
           >
-            {bonusParts.length > 0 ? bonusParts.join("  ") : "No bonuses"}
+            {bonusParts.length > 0 ? bonusParts.join(" • ") : "No bonuses"}
           </div>
         </div>
         <Button
