@@ -859,59 +859,82 @@ function EquipDetailScreen() {
                   </div>
                 </div>
 
-                {/* Right panel: quick list (inventory summary) */}
+                {/* Right panel: inventory / slot side-panel */}
                 <div
                   className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
-                  data-testid="inventory-summary"
+                  data-testid="side-panel"
                 >
                   <div className="flex items-center justify-between gap-3">
                     <div>
                       <div
                         className="text-xs uppercase tracking-[0.28em] text-zinc-400"
-                        data-testid="inventory-title"
+                        data-testid="side-panel-label"
                       >
-                        Inventory
+                        {activeSlot ? "Slot" : "Inventory"}
                       </div>
                       <div
                         className="mt-1 text-sm text-zinc-200"
-                        data-testid="inventory-subtitle"
+                        data-testid="side-panel-title"
                       >
-                        Select a slot to filter items.
+                        {activeSlot
+                          ? SLOT_LABEL[activeSlot]
+                          : "Select a slot to filter items."}
                       </div>
                     </div>
-                    <Button
-                      variant="ghost"
-                      className="rounded-full border border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
-                      onClick={() => setActiveSlot("head")}
-                      data-testid="inventory-open-default-slot-button"
-                    >
-                      Browse
-                    </Button>
+
+                    {activeSlot ? (
+                      <Button
+                        variant="ghost"
+                        className="rounded-full border border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
+                        onClick={() => setActiveSlot(null)}
+                        data-testid="side-panel-close-button"
+                      >
+                        Close
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="ghost"
+                        className="rounded-full border border-white/10 bg-white/[0.02] hover:bg-white/[0.05]"
+                        onClick={() => setActiveSlot("head")}
+                        data-testid="inventory-open-default-slot-button"
+                      >
+                        Browse
+                      </Button>
+                    )}
                   </div>
 
                   <Separator className="my-4 bg-white/10" />
 
-                  <ScrollArea className="h-[360px] pr-3" data-testid="inventory-scroll">
-                    <div className="space-y-3" data-testid="inventory-list">
+                  <ScrollArea className="h-[420px] pr-3" data-testid="side-panel-scroll">
+                    <div className="space-y-3" data-testid="side-panel-items">
                       {(activeSlot
                         ? itemsForActiveSlot
-                        : (profile?.inventory || []).slice(0, 8)
+                        : (profile?.inventory || []).slice(0, 10)
                       ).map((it) => (
                         <ItemRow
                           key={it.item_id}
                           item={it}
                           onEquip={() => {
-                            setActiveSlot(it.slot);
                             equipItem(it.slot, it.item_id);
                           }}
                         />
                       ))}
+
                       {(profile?.inventory || []).length === 0 ? (
                         <div
                           className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-zinc-300"
                           data-testid="inventory-empty"
                         >
                           No items yet.
+                        </div>
+                      ) : null}
+
+                      {activeSlot && itemsForActiveSlot.length === 0 ? (
+                        <div
+                          className="rounded-xl border border-white/10 bg-white/[0.03] p-4 text-sm text-zinc-300"
+                          data-testid="side-panel-empty"
+                        >
+                          No items for this slot.
                         </div>
                       ) : null}
                     </div>
