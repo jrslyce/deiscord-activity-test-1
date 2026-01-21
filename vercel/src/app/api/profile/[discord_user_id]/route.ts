@@ -1,8 +1,3 @@
-import { NextResponse } from "next/server";
-import { getDb } from "@/lib/mongodb";
-
-export const runtime = "nodejs";
-
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 
