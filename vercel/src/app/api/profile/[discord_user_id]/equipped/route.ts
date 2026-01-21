@@ -1,13 +1,13 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/mongodb";
 
 export const runtime = "nodejs";
 
 export async function PUT(
-  req: Request,
-  { params }: { params: { discord_user_id: string } },
+  req: NextRequest,
+  { params }: { params: Promise<{ discord_user_id: string }> },
 ) {
-  const id = params.discord_user_id;
+  const { discord_user_id: id } = await params;
   const body = await req.json();
 
   const { slot, item_id, equipped } = body || {};

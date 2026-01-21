@@ -3,11 +3,16 @@ import { getDb } from "@/lib/mongodb";
 
 export const runtime = "nodejs";
 
+import { NextRequest, NextResponse } from "next/server";
+import { getDb } from "@/lib/mongodb";
+
+export const runtime = "nodejs";
+
 export async function GET(
-  _req: Request,
-  { params }: { params: { discord_user_id: string } },
+  _req: NextRequest,
+  { params }: { params: Promise<{ discord_user_id: string }> },
 ) {
-  const id = params.discord_user_id;
+  const { discord_user_id: id } = await params;
   const db = await getDb();
   const profiles = db.collection("profiles");
 
