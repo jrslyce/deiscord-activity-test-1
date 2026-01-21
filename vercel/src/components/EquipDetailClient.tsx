@@ -348,7 +348,7 @@ export default function EquipDetailClient() {
   }, [profile, activeSlot]);
 
   async function syncProfile(user: { id: string; username: string; avatar: string | null }) {
-    await fetch("/api/profile/upsert", {
+    const upsertRes = await fetch("/api/profile/upsert", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -358,9 +358,13 @@ export default function EquipDetailClient() {
       }),
     });
 
-    const res = await fetch(`/api/profile/${encodeURIComponent(user.id)}`);
-    if (!res.ok) throw new Error("Profile load failed");
-    const doc = (await res.json()) as ProfileDoc;
+    if (!upsertRes.ok) {
+      const error = await upsertRes.json().catch(() => ({ error: "Unknown error" }));
+      throw new Error(`Profile upsert failed: ${error.error || upsertRes.statusText}`);
+    }
+
+    // Upsert now returns the profile directly, so we can use it
+    const doc = (await upsertRes.json()) as ProfileDoc;
     setProfile(doc);
   }
 

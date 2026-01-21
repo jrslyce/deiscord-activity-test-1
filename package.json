@@ -1,0 +1,16 @@
+{
+  "name": "deiscord-activity-test-1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Discord Activity Equip Detail - Next.js Application",
+  "scripts": {
+    "dev": "cd vercel && npm run dev",
+    "build": "cd vercel && npm run build",
+    "start": "cd vercel && npm run start",
+    "lint": "cd vercel && npm run lint",
+    "install": "cd vercel && npm install"
+  },
+  "workspaces": [
+    "vercel"
+  ]
+}
