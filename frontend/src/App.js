@@ -3,7 +3,7 @@ import "@/App.css";
 import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { DiscordSDK } from "@discord/embedded-app-sdk";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
