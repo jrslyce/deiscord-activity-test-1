@@ -1,3 +1,0 @@
-{
-  "/api/profile/[discord_user_id]/route": "app/api/profile/[discord_user_id]/route.js"
-}

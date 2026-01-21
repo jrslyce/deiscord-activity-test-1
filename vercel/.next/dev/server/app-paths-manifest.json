@@ -1,3 +1,4 @@
 {
-  "/api/verify/route": "app/api/verify/route.js"
+  "/api/profile/upsert/route": "app/api/profile/upsert/route.js",
+  "/page": "app/page.js"
 }

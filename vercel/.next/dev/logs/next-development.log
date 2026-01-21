@@ -1,0 +1,6 @@
+[00:00:00.523] Server  LOG     ✓ Ready in 341ms
+[00:00:00.848] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:05.428] Server  LOG     [MongoDB] Connecting with URI: "mongodb+srv://dbdb:****@cluster0.lp72zan.mongodb.net/?appName=Cluster0"
+[00:00:05.435] Server  ERROR   Profile upsert error: Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.lp72zan.mongodb.net
+[00:00:05.436] Server  ERROR   Error stack: "Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0.lp72zan.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)\n    at QueryReqWrap.callbackTrampoline (node:internal/async_hooks:130:17)"
+[00:00:05.545] Browser ERROR   unhandledRejection: Error: Profile upsert failed: querySrv ECONNREFUSED _mongodb._tcp.cluster0.lp72zan.mongodb.net

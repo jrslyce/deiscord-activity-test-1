@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 46, "column": 0}, "map": {"version":3,"sources":["file:///app/vercel/src/app/api/verify/route.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\n\nexport const runtime = \"nodejs\";\n\nexport async function GET() {\n  return NextResponse.json({ ok: true });\n}\n"],"names":[],"mappings":";;;;;;AAAA;;AAEO,MAAM,UAAU;AAEhB,eAAe;IACpB,OAAO,0JAAY,CAAC,IAAI,CAAC;QAAE,IAAI;IAAK;AACtC"}}]
-}
