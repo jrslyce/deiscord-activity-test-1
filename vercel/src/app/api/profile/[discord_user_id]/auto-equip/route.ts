@@ -42,8 +42,8 @@ export async function PUT(
   for (const slot of Object.keys(bySlot)) {
     const items = bySlot[slot];
     items.sort((a, b) => {
-      const wa = RARITY_WEIGHT[a.rarity] || 0;
-      const wb = RARITY_WEIGHT[b.rarity] || 0;
+      const wa = RARITY_WEIGHT[a.rarity as keyof typeof RARITY_WEIGHT] || 0;
+      const wb = RARITY_WEIGHT[b.rarity as keyof typeof RARITY_WEIGHT] || 0;
       if (wa !== wb) return wb - wa;
       return String(b.name).localeCompare(String(a.name));
     });
